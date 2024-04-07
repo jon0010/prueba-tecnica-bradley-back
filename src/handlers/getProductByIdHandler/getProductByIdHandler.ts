@@ -8,7 +8,11 @@ export const getProductByIdHandler = async (req: Request, res: Response) => {
     if (!product) {
       return res.status(404).json({ message: "Producto no encontrado" });
     }
-    res.json(product);
+    res.json({
+      ...product.toJSON(),
+      createdAt: product.createdAt,
+      updatedAt: product.updatedAt,
+    });
   } catch (error) {
     res.status(500).json({ message: "Error al obtener el producto", error });
   }
