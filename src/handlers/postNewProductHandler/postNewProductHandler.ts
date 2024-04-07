@@ -13,11 +13,15 @@ export const postNewProductHandler = async (req: Request, res: Response) => {
         .json({ message: "Todos los campos son requeridos" });
     }
 
+    const now = new Date();
+
     const product = new Product({
       name,
       price,
       description,
       imageUrl,
+      createdAt: now,
+      updatedAt: now,
     });
 
     await product.save();

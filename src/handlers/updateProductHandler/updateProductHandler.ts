@@ -7,9 +7,11 @@ export const updateProductHandler = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, price, description, imageUrl } = req.body;
   try {
+    const now = new Date();
+
     const product = await Product.findByIdAndUpdate(
       id,
-      { name, price, description, imageUrl },
+      { name, price, description, imageUrl, updatedAt: now },
       { new: true }
     );
     if (!product) {
