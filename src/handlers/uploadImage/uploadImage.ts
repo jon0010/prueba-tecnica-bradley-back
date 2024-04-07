@@ -9,6 +9,9 @@ cloudinary.config({
 
 export const uploadImageHandler = async (req: Request, res: Response) => {
   try {
+    console.log("Request Body:", req.body);
+    console.log("Uploaded File:", req.file);
+
     if (!req.file) {
       return res.status(400).json({ message: "No se encontró ninguna imagen" });
     }
@@ -16,6 +19,8 @@ export const uploadImageHandler = async (req: Request, res: Response) => {
     const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path, {
       folder: "products",
     });
+
+    console.log("Cloudinary Response:", cloudinaryResponse);
 
     res.status(200).json({ imageUrl: cloudinaryResponse.secure_url });
   } catch (error) {

@@ -18,3 +18,4 @@ productRoute.delete("/delete/:id", deleteProductHandler);
 productRoute.post("/upload", uploadImageHandler);
 
 export default productRoute;
+
