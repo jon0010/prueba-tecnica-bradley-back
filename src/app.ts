@@ -11,9 +11,10 @@ connectToDatabase();
 server.use(express.json());
 server.use(morgan("dev"));
 server.use(cors());
+server.options("*", cors());
 
 server.use((_req: Request, res: Response, next: NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", ["*", "http://localhost:5173"]);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",

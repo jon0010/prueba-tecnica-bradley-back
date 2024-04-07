@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import Product from "../../models/productModel";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const updateProductHandler = async (req: Request, res: Response) => {
   const { id } = req.params;

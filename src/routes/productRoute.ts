@@ -5,7 +5,6 @@ import {
   postNewProductHandler,
   updateProductHandler,
   deleteProductHandler,
-  uploadImageHandler,
 } from "../handlers";
 
 const productRoute = Router();
@@ -15,7 +14,6 @@ productRoute.get("/:id", getProductByIdHandler);
 productRoute.post("/post", postNewProductHandler);
 productRoute.put("/update/:id", updateProductHandler);
 productRoute.delete("/delete/:id", deleteProductHandler);
-productRoute.post("/upload", uploadImageHandler);
 
 export default productRoute;
 
